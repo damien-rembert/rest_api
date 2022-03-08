@@ -5,8 +5,7 @@ const { addMovie, listMovies, deleteMovie, updateMovie } = require("./movieContr
 
 movieRouter.post("/movie", addMovie);
 movieRouter.get("/movie", listMovies);
-movieRouter.delete("/movie/:filterKey/:filterVal", deleteMovie);
-// for example for delete: "http://local:5001/movie/title/Spiderman"
+movieRouter.delete("/movie", deleteMovie);
 movieRouter.put("/movie", updateMovie);
 
 

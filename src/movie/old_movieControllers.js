@@ -23,17 +23,15 @@ exports.listMovies = async (req, res) => {
 
 exports.updateMovie = async (req, res) => {
     try {
-        // const filter = { _id: req.params.id };
-        // const update = req.body;
-        // const options = { new: true };
+        const filter = { _id: req.params.id };
+        const update = req.body;
+        const options = { new: true };
 
-        // console.log("here is the request: ", req);
-
-        // // const movie = await Movie.findOneAndUpdate(filter, update, options);
-        // const updateMovie = await Movie.findOneAndUpdate(filter, update, options);
-        // res.status(200).send({title: updateMovie});
-
-
+        console.log("here is the request: ", req);
+        
+        // const movie = await Movie.findOneAndUpdate(filter, update, options);
+        const updateMovie = await Movie.findOneAndUpdate(filter, update, options);
+        res.status(200).send({title: updateMovie});
     } catch (error) {
         console.log(error, `issue with update`);
         res.status(500).send({ err: error.message });
