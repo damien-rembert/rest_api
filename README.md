@@ -6,4 +6,5 @@
 ```zsh
 # list all films
 curl -X GET http://localhost:5000/movie
+
 ```

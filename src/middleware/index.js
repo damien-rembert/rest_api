@@ -1,3 +1,4 @@
+//@ts-check
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../user/userModel");
