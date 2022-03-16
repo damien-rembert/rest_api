@@ -17,8 +17,6 @@ exports.hashPassword = async (req, res, next) => {
     }
 }
 
-
-
 exports.decryptPassword = async (req, res, next) => {
   try {
     req.user = await User.findOne({ username: req.body.username });
