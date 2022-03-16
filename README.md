@@ -19,21 +19,25 @@ curl -X PATCH -d '{"filterKey": "title", "filterVal": "testo film", "updateKey":
 
 # check user
 
-# create user post http://localhost:5000/user body.username, body.email, body.password
+# create user POST http://localhost:5000/user body.username, body.email, body.password
 curl -d '{"username": "pajojo", "email": "pajojo@gmail.com", "password": "test123"}'  -H 'Content-Type: application/json' http://localhost:5000/user
     # {"user":"pajojo","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyMjg3NGI4OTQzZDNjOTc5NTRmZTMiLCJpYXQiOjE2NDc0NTQzMjR9.alJsG5W6ZrEs82x0PN3dYvxNEHD2JAqa_WMr9R_lH50"}
 
-# // full login post http://localhost:5000/login body.username and body.password
+# // full login POST http://localhost:5000/login body.username and body.password
 curl -d '{"username": "pajojo", "password": "test123"}'  -H 'Content-Type: application/json' http://localhost:5000/login
 
-# // token login get http://localhost:5000/user   header.Authorization: "Bearer TOKEN"
+# // token login GET http://localhost:5000/user   header.Authorization: "Bearer TOKEN"
 curl -X GET -H 'Content-Type: application/json' -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyMjg3NGI4OTQzZDNjOTc5NTRmZTMiLCJpYXQiOjE2NDc0NTQzMjR9.alJsG5W6ZrEs82x0PN3dYvxNEHD2JAqa_WMr9R_lH50" http://localhost:5000/user
 
-# // update password patch http://localhost:5000/user body.password, header bearer token, 
+# // update password PATCH http://localhost:5000/user body.password, header bearer token, 
 curl -X PATCH -d '{"password": "test321"}'  -H 'Content-Type: application/json'  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyMjg3NGI4OTQzZDNjOTc5NTRmZTMiLCJpYXQiOjE2NDc0NTQzMjR9.alJsG5W6ZrEs82x0PN3dYvxNEHD2JAqa_WMr9R_lH50" http://localhost:5000/user
 
 # check it worked with full login
 curl -d '{"username": "pajojo", "password": "test321"}'  -H 'Content-Type: application/json' http://localhost:5000/login
+
+# delete user
+curl -X DELETE -H 'Content-Type: application/json'  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyNWE4NDYxOTBlZmIyM2NjMTVkY2UiLCJpYXQiOjE2NDc0NjcxNDB9.nNQAbB0wwIg2dCqKGg96IixVL1TmIFXiPUuq-Lbcwi4" http://localhost:5000/user
+
 
 ```
 

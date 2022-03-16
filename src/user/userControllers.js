@@ -41,18 +41,18 @@ exports.updatePassword = async (req, res) => {
 };
 
 exports.deleteUser = async (req, res) => {
-  // try {
-  //   const updatedUser = await User.updateOne(
-  //     { username: req.user.username },
-  //     { password: req.body.password }
-  //   );
-  //   if (updatedUser.modifiedCount > 0) {
-  //     res.status(200).send({ msg: "Successfully updated user" });
-  //   } else {
-  //     throw new Error("Did not update");
-  //   }
-  // } catch (error) {
-  //   console.log(error);
-  //   res.status(500).send({ err: error.message });
-  // }
+  try {
+    const deletedUser = await User.deleteOne(
+      { username: req.user.username }
+    );
+    console.log(deletedUser);
+    if (deletedUser.deletedCount > 0) {
+      res.status(200).send({ msg: "Successfully deleted user" });
+    } else {
+      throw new Error("Did not delete user");
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ err: error.message });
+  }
 };
