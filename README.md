@@ -4,6 +4,9 @@
 ## Testing the API using curl because why not
 
 ```zsh
+
+# MOVIE
+
 # list all films
 curl -X GET http://localhost:5000/movie
 # add "testo film" to the db (no need to indicate post as it is the default)
@@ -17,7 +20,7 @@ curl -X DELETE -H 'Content-Type: application/json' "http://localhost:5000/movie/
 curl -X PATCH -d '{"filterKey": "title", "filterVal": "testo film", "updateKey": "actors", "updateVal": ["Tom", "Mark", "Lucas"]}'  -H 'Content-Type: application/json' http://localhost:5000/movie
 
 
-# check user
+# USER
 
 # create user POST http://localhost:5000/user body.username, body.email, body.password
 curl -d '{"username": "pajojo", "email": "pajojo@gmail.com", "password": "test123"}'  -H 'Content-Type: application/json' http://localhost:5000/user
@@ -37,8 +40,6 @@ curl -d '{"username": "pajojo", "password": "test321"}'  -H 'Content-Type: appli
 
 # delete user
 curl -X DELETE -H 'Content-Type: application/json'  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMyNWE4NDYxOTBlZmIyM2NjMTVkY2UiLCJpYXQiOjE2NDc0NjcxNDB9.nNQAbB0wwIg2dCqKGg96IixVL1TmIFXiPUuq-Lbcwi4" http://localhost:5000/user
-
-
 ```
 
 
